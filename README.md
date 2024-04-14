@@ -1,2 +1,2 @@
 # Inventory-management-system
-E-commerce for product and order management 
+E-commerce for product and order management in specific addresssss
