@@ -1,6 +1,7 @@
 package converter;
 
 import dto.ProductRequest;
+import entity.Category;
 import entity.Product;
 
 public class ProductConverter {
@@ -10,6 +11,7 @@ public class ProductConverter {
         product.setQuantity(request.getQuantity());
         product.setDescription(request.getDescription());
         product.setName(request.getName());
+        product.setCategory(new Category(request.getCategoryId()));
 
         return product;
     }
