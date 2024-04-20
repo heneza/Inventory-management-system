@@ -14,13 +14,13 @@ public class InventoryManagementSystem {
                 createProduct(sc);
                 break;
             case 2:
-                displayAllProduct();
+                break;
         }
     }
     public static void createProduct(Scanner scanner) {
         ProductRequest productRequest = new ProductRequest();
         System.out.println("Ju lutem fusni emrin e producktit");
-        productRequest.setNa(scanner.next());
+        productRequest.setName(scanner.next());
         System.out.println("Ju lutem fusni pershkrimin e produktit");
         productRequest.setDescription(scanner.next());
         System.out.println("Ju lutem fusni ID e categorise");
@@ -30,7 +30,7 @@ public class InventoryManagementSystem {
         System.out.println("Ju lutem fusni sasine e produktit");
         productRequest.setQuantity(scanner.nextInt());
         ProductService productService = new ProductServiceImpl();
-        productService.createProduct(productRequest);
+        productService.create(productRequest);
     }
 }
 
