@@ -1,22 +1,37 @@
 package client;
 import dto.ProductRequest;
+import entity.Product;
 import service.ProductService;
 import service.ProductServiceImpl;
+
+import java.util.List;
 import java.util.Scanner;
 public class InventoryManagementSystem {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Inventory Managment System");
+        System.out.println("Inventory Management System");
         System.out.println("1. Add product");
+        System.out.println("2. display all products");
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
                 createProduct(sc);
                 break;
             case 2:
+                displayAllProduct();
                 break;
         }
     }
+
+    public static void displayAllProduct(){
+        ProductService productService = new ProductServiceImpl();
+
+        for (Product product: productService.displayAllProduct()) {
+            System.out.println(product);
+        }
+
+    }
+
     public static void createProduct(Scanner scanner) {
         ProductRequest productRequest = new ProductRequest();
         System.out.println("Ju lutem fusni emrin e producktit");

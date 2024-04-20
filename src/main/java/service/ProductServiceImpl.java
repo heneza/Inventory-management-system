@@ -9,6 +9,7 @@ import entity.Product;
 import org.hibernate.SessionFactory;
 import validator.ProductValidator;
 
+import java.util.List;
 
 
 public class ProductServiceImpl implements ProductService {
@@ -24,4 +25,11 @@ public class ProductServiceImpl implements ProductService {
         productDao.save(product);
 
     }
+
+    @Override
+    public List<Product> displayAllProduct() {
+        return productDao.findAll();
+    }
+
+
 }
