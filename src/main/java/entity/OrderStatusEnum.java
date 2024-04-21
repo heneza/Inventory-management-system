@@ -1,5 +1,5 @@
 package entity;
 
-public enum OrderStatus {
+public enum OrderStatusEnum {
     NEW, PROCESSING, SHIPPED, COMPLETED, ON_HOLD, CANCELLED
 }
