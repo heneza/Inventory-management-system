@@ -1,15 +1,13 @@
 package entity;
-
-import com.mysql.cj.xdevapi.Client;
+import entity.Client;
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-@Entity(name = "Order_table")
-
+@Entity(name = "orders")
 public class Order {
 
     @Id
@@ -22,8 +20,10 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "order_status")
-    @ColumnDefault("NEW")
     private OrderStatusEnum orderStatusEnum;
+
+    @OneToMany(mappedBy = "orders")
+    private List<OrderItems> orderItems;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_status")
@@ -33,7 +33,7 @@ public class Order {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @Column(name ="created_at")
+    @Column(name ="updated_at")
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
@@ -91,5 +91,13 @@ public class Order {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public List<OrderItems> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItems> orderItems) {
+        this.orderItems = orderItems;
     }
 }
